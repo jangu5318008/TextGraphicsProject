@@ -1,0 +1,3 @@
+/Users/jason/TextGraphicsProject/build/CMakeFiles/TextGraphicsProject.dir
+/Users/jason/TextGraphicsProject/build/CMakeFiles/edit_cache.dir
+/Users/jason/TextGraphicsProject/build/CMakeFiles/rebuild_cache.dir
