@@ -24,14 +24,14 @@ while (true) {
     tg.clearScreen();
     for (int j = 0; j < tg.width(); j++) {
 
-        int y = drops[x];
+        int y = drops[j];
 
         char headChar = 33 + rand() % 94;
-        tg.putCharAt(j, y, headchar, Color::White);
+        tg.putCharAt(j, y, headChar, Color::White);
         for (int tail = 1; tail <= 5; tail++) {
             int drawY = y - tail;
             if (drawY >= 0) {
-                char tailChar - 33 + rand() % 94;
+                char tailChar = 33 + rand() % 94;
                 tg.putCharAt(j, drawY, tailChar, Color::Green);
             }
         }
