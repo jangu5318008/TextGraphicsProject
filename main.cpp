@@ -10,7 +10,7 @@ int main () {
 
     TextGraphics tg;
 
-    srand(time());
+    srand(time(nullptr));
 
     vector<int> drops(tg.width());
     vector<int> speed(tg.width());
@@ -46,5 +46,6 @@ while (true) {
 }
     
 return 0;
+
 
 }
