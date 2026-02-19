@@ -2,6 +2,7 @@
 #include "TextGraphics.h"
 #include <cstdlib>
 #include <ctime>
+#include <vector>
 
 using namespace std;
 
