@@ -19,8 +19,8 @@
 #define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
 #endif
 
-const int WIDTH = 120;
-const int HEIGHT = 30;
+const int WIDTH = 143;
+const int HEIGHT = 16;
 const int ESCAPE = 27;
 
 enum class Color {
