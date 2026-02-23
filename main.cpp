@@ -26,11 +26,16 @@ int main () {
 
     tg.clearScreen();
     string startMsg = "Press Enter Neo...";
+    string subMsg = "Space changes color // ESC exits";
     int startY = height / 2;
     int startX = (width - startMsg.length()) / 2;
+    int subX = (width - subMsg.length()) / 2;
 
     for (int i = 0; i < startMsg.length(); i++) {
         tg.putCharAt(startY, startX + i, startMsg[i], Color::Green);
+    }
+    for (int i = 0; i < subMsg.length(); i++) {
+        tg.putCharAt(startY + 1, subX + i, subMsg[i], Color::Green); 
     }
     tg.draw();
     cin.get();
