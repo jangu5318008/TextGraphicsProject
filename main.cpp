@@ -57,12 +57,12 @@ int main () {
 
     int colorMode = 0;
     while (true) {
-    if (tg.kbhit()) {
-        char key = tg.getChar();
-        if (key == ' ') {
-            colorMode = (colorMode + 1) % 4;
-        }
-
+    int key = tg.readKey();
+    if (key == ' ') {
+        colorMode = (colorMode + 1) % 4;
+    }
+    if (key == ESCAPE) {
+        break;
     }
     
         tg.clearScreen();
@@ -92,7 +92,7 @@ int main () {
             headColor = Color::Blue;
         }
         else if (colorMode == 3) {
-            headColor = Color::Yellow
+            headColor = Color::Yellow;
         }
         tg.putCharAt(y, j, headChar, headColor); 
         for (int tail = 1; tail <= 5; tail++) {
