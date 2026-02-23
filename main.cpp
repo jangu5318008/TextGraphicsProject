@@ -92,7 +92,7 @@ int main () {
             headColor = Color::Blue;
         }
         else if (colorMode == 3) {
-            headColor == Color::Yellow
+            headColor = Color::Yellow
         }
         tg.putCharAt(y, j, headChar, headColor); 
         for (int tail = 1; tail <= 5; tail++) {
