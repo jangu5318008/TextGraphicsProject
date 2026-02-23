@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <vector>
+#include <string> 
 
 using namespace std;
 
@@ -23,6 +24,18 @@ int main () {
     //nullptr will generate new seed upon every execution
     srand(time(nullptr));
 
+    tg.clearScreen();
+    string startMsg = "Press Enter Neo...";
+    int startY = height / 2;
+    int startX = (width - startMsg.length()) / 2;
+
+    for (int i = 0; i < startMsg.length(); i++) {
+        tg.putCharAt(startY, startX + i, startMsg[i], Color::Green);
+    }
+    tg.draw();
+    cin.get();
+    tg.clearScreen();
+
 
     //y coordinate of each rain column
     vector<int> drops(width);
@@ -30,6 +43,8 @@ int main () {
     vector<int> speed(width);
     /*1 + rand() % x ensures the speed will never be 0
     resulting in frozen program*/
+
+
     for (int i = 0; i < width; i++) {
 
         drops[i] = rand() % height;
@@ -39,8 +54,18 @@ int main () {
         }
     }
     //Loop forever
+
+    int colorMode = 0;
     while (true) {
-    tg.clearScreen();
+    if (tg.kbhit()) {
+        char key = tg.getChar();
+        if (key == ' ') {
+            colorMode = (colorMode + 1) % 4;
+        }
+
+    }
+    
+        tg.clearScreen();
     for (int j = 0; j < width; j++) {
         //tg.clearScreen();
         if (drops[j] >= height) {
@@ -57,14 +82,25 @@ int main () {
 
         char headChar = 33 + rand() % 94;
         //Jason entered y and j in reverse order and the rain was flowing horizontally
-        tg.putCharAt(y, j, headChar, Color::White);
+        //
 
+        Color headColor = Color::Green;
+        if (colorMode == 1) {
+        headColor = Color::Red;
+        }
+        else if (colorMode == 2) {
+            headColor = Color::Blue;
+        }
+        else if (colorMode == 3) {
+            headColor == Color::Yellow
+        }
+        tg.putCharAt(y, j, headChar, headColor); 
         for (int tail = 1; tail <= 5; tail++) {
             int drawY = y - tail;
             if (drawY >= 0) {
                 char tailChar = 33 + rand() % 94;
                 //drawY and j was also incorrectly ordered here as well
-                tg.putCharAt(drawY, j, tailChar, Color::Green);
+                tg.putCharAt(drawY, j, tailChar, headColor);
             }
         }
 
