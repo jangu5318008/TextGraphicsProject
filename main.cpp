@@ -7,6 +7,7 @@
 
 using namespace std;
 
+
 ////////MODIFIED HEADER FILE WIDTH AND HEIGHT 
 int main () {
 
@@ -27,13 +28,16 @@ int main () {
     tg.clearScreen();
     string startMsg = "Press Enter Neo...";
     string subMsg = "Space changes color // ESC exits";
+    //((expression).length()) / 2 will center. 
     int startY = height / 2;
     int startX = (width - startMsg.length()) / 2;
+    //startY will "center", expressionX will place it in "middle" 
     int subX = (width - subMsg.length()) / 2;
 
     for (int i = 0; i < startMsg.length(); i++) {
         tg.putCharAt(startY, startX + i, startMsg[i], Color::Green);
     }
+    //startY + 1 moves sub message below start message
     for (int i = 0; i < subMsg.length(); i++) {
         tg.putCharAt(startY + 1, subX + i, subMsg[i], Color::Green); 
     }
@@ -108,7 +112,7 @@ int main () {
                 tg.putCharAt(drawY, j, tailChar, headColor);
             }
         }
-
+        
         drops[j] += speed[j];
     }
 
